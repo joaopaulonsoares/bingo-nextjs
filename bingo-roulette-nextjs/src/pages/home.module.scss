@@ -1,0 +1,44 @@
+.contentContainer {
+    margin:  0 auto;
+    padding: 0 2rem;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.rouletteContainer {
+    width: 70%;
+    height: 90vh;
+
+
+    .rouletteHeader {
+        height: 30vh;
+        background-color: var(--green-100);
+    }
+
+    .rouletteNumbers {
+        height: 60vh;
+        display: grid;
+        grid-template-columns: repeat(15, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        background-color: #2196F3;
+
+    }
+
+
+}
+
+.cartelGridItem {
+    background-color:#00b9f3;
+    border: 1px solid var(--white);
+    font-size: 30px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
