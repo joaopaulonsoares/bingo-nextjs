@@ -16,29 +16,79 @@
 
     .rouletteHeader {
         height: 30vh;
-        background-color: var(--green-100);
+        width: 100%;
+        background-color: var(--brown-200);
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-bottom: 2rem;
+        border-radius:20px;
+        
+        .sort {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .sortedNumber {
+                background: var(--brown-100);
+                border-radius: 50%;
+                width: 11rem;
+                height: 11rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 6rem;
+                font-weight: bold;
+            }
+
+            .lastDraws{
+                display: flex;
+                justify-content: space-evenly;
+                padding-top: 1rem;
+
+                .lastNumbersDraw {
+                    background: var(--brown-100);
+                    border-radius: 50%;
+                    width: 3rem;
+                    height: 3rem; 
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 10px;
+                }
+            }
+
+
+        }
+
+        .buttonsPanel {
+            height: 20vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            button {
+                height: 5vh;
+                width: 300px;
+                border: 5px solid var(--brown-400);
+                border-radius: 5px;
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+        }
+
+
     }
 
-    .rouletteNumbers {
-        height: 60vh;
+    .rouletteCardNumbers {
+        height: 55vh;
         display: grid;
         grid-template-columns: repeat(15, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
-        background-color: #2196F3;
-
+        background-color: var(--brown-200);
+        border-radius:20px;
     }
 
 
-}
-
-.cartelGridItem {
-    background-color:#00b9f3;
-    border: 1px solid var(--white);
-    font-size: 30px;
-    text-align: center;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }

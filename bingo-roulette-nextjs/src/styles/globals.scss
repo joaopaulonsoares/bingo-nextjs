@@ -6,6 +6,7 @@
 
 :root {
   --white: #FFFFFF;
+  --black: #121212;
 
   --gray-100: #e1e1e6;
   --gray-300: #a8a8b3;
@@ -18,6 +19,10 @@
 
   --green-100: #c8e6c9;
   --green-300: #00FF7F;
+
+  --brown-100: #f6ead4;
+  --brown-200: #b4a284;
+  --brown-400: #857570;
 }
 
 @media(max-width: 1080px){
@@ -33,8 +38,8 @@
 }
 
 body {
-  background: var(--green-300);
-  color: var(--white)
+  background: var(--brown-100);
+  color: var(--black)
 }
 
 body, input, textarea, select, button {
