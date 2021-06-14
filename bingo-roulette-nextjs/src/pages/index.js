@@ -5,42 +5,46 @@ import styles from './home.module.scss'
 import { cardItem } from '../components/CardItem/index';
 
 export default function Home() {
-  const numbersOfRoulette = Array.from(Array(75).keys())
+  const sizeOfNumbersInRoulette = 75;
+
+
+  const numbersOfRoulette = Array.from(Array(sizeOfNumbersInRoulette).keys())
   const [drawNumbers, setDrawNumbers] = useState([])
   const [numbersToBeDraw, setNumbersToBeDraw] = useState(numbersOfRoulette);
   const [lastNumberDraw, setLastNumberDraw] = useState(null);
 
-  //const sortedNumbers = [1, 5, 6, 24, 76, 23, 65, 65, 76];
   const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
   async function drawRandomNumberAvailable(e){
     const arrayPositionDraw = random(0, numbersToBeDraw.length);
     const drawNumber = (numbersToBeDraw[arrayPositionDraw]);
     await setLastNumberDraw(drawNumber);
-    // Update drawn numbers
     const updateDrawedNumbers = [...drawNumbers, drawNumber];
     await setDrawNumbers(updateDrawedNumbers);
-    // Remove number from availables and update list;
     const availableNumbersToDrawn = [...numbersToBeDraw]
     const updateAvailableNumbersToDrawn = availableNumbersToDrawn.filter(item => item !== drawNumber)
     await setNumbersToBeDraw(updateAvailableNumbersToDrawn);
-
     await updateLocalStorageData(updateDrawedNumbers);
   }
 
-  // Get data from local storage for the first time
- /* useEffect(async () => {
+ useEffect(async () => {
     const dataFromLocalStorage = await getLocalStorageData();
     setDrawNumbers(dataFromLocalStorage);
-  },[]);*/
+    if(dataFromLocalStorage.length > 0) {
+      setLastNumberDraw(([...dataFromLocalStorage].slice(-1))[0]);
+    }
+  },[]);
 
   useEffect(() => {
   },[drawNumbers]);
 
   async function getLocalStorageData(){
-    // Atualizar LocalStorage
-    const data = localStorage.getItem('@bingoRoulette/drawedNumbers');
-    return data;
+    const localStorageData = localStorage.getItem('@bingoRoulette/drawedNumbers');
+    if(localStorageData){
+      return localStorageData.split(',').map(Number);
+    }
+
+    return [];
   }
 
   async function updateLocalStorageData(updateAvailableNumbersToDrawn){
@@ -68,7 +72,7 @@ export default function Home() {
                 <div className={styles.lastDraws}>
                   {
                     ((drawNumbers.slice(-3)).reverse()).map((numberDrawed) =>
-                      <div className={styles.lastNumbersDraw}>
+                      <div className={styles.lastNumbersDraw} key={`numberDrawed-${numberDrawed}`}>
                         {numberDrawed + 1}
                       </div>
                     )
@@ -77,7 +81,9 @@ export default function Home() {
               </div>
 
               <div className={styles.buttonsPanel}>
-                <button onClick={drawRandomNumberAvailable}>Sortear número</button>
+                { drawNumbers.length < sizeOfNumbersInRoulette &&
+                  <button onClick={drawRandomNumberAvailable}>Sortear próximo número</button>
+                }
                 <button onClick={cleanLocalStorageData}>Reiniciar sorteio</button>
               </div>
 
@@ -86,7 +92,9 @@ export default function Home() {
             <div className={styles.rouletteCardNumbers}>
                 {
                   numbersOfRoulette.map((number) =>
-                    cardItem(number, drawNumbers)
+                    <div key={`numbersOfRoulette-${number}`}>
+                      {cardItem(number, drawNumbers)}
+                    </div>
                   )
                 }
             </div>
