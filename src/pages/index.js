@@ -93,7 +93,7 @@ export default function Home() {
                 {
                   numbersOfRoulette.map((number) =>
                     <div key={`numbersOfRoulette-${number}`}>
-                      {cardItem(number, drawNumbers)}
+                      {cardItem(number, drawNumbers.includes(number))}
                     </div>
                   )
                 }

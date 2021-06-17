@@ -97,5 +97,21 @@
         background-color: var(--brown-200);
     }
 
+}
 
+
+.playerCardContainer {
+    width: 100vw;
+    height: 100vh;
+    
+    .playerCardNumbers {
+        height: 80%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        background-color: var(--brown-200);
+        font-size: 1rem;
+    }
 }
