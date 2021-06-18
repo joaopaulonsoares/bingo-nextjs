@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from './home.module.scss'
 import { cardItem } from '../components/CardItem/index';
 import { confirmAlert } from 'react-confirm-alert'; // Import
@@ -92,6 +91,10 @@ export default function Home() {
 
 
   return (
+    <>
+      <Head>
+        <title>Bingo da Bibi</title>
+      </Head>
       <div className={styles.contentContainer}>
         <div className={styles.rouletteContainer}>
             <div className={styles.rouletteHeader}>
@@ -134,5 +137,6 @@ export default function Home() {
             </div>
         </div>
       </div>
+    </>
   )
 }

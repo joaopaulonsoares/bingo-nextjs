@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Head from 'next/head'
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import { ToastContainer, toast } from 'react-toastify';
 import { PlayerCardItem, CenterPlayerCardItem } from '../components/Card/PlayerCardItem/index';
@@ -104,6 +105,10 @@ export default function Cartela() {
 
 
   return (
+    <>
+      <Head>
+        <title>Cartela | Bingo da Bibi</title>
+      </Head>
       <div className={styles.playerCardContainer}>
           <div className={styles.playerCardContent}>
             <div className={styles.playerCardHeader}>
@@ -135,5 +140,6 @@ export default function Cartela() {
             />
           </div>
       </div>
+    </>
   )
 }
