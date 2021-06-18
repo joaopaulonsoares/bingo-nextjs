@@ -15,7 +15,7 @@ export default function Home() {
   const [drawNumbers, setDrawNumbers] = useState([])
   const [numbersToBeDraw, setNumbersToBeDraw] = useState(numbersOfRoulette);
   const [lastNumberDraw, setLastNumberDraw] = useState(null);
-  const [numberIsBeenDrawing, setNumberIsBeenDrawing] = useState(true);
+  const [numberIsBeenDrawing, setNumberIsBeenDrawing] = useState(false);
   const [disableDrawNumberButton, setDisableDrawNumberButton] = useState(false);
 
   const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;

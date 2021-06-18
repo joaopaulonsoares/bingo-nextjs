@@ -113,9 +113,9 @@ export default function Cartela() {
                 {
                   cardNumbers.map((number, index) =>
                       (index === 12) ? 
-                      <CenterPlayerCardItem number={number} key={`numbersOfRoulette-${number}`} />
+                      <CenterPlayerCardItem number={number} key={`numbersOfCard-${number}`} />
                       :
-                      <PlayerCardItem number={number} key={`numbersOfRoulette-${number}`} />
+                      <PlayerCardItem number={number} key={`numbersOfCard-${number}`} />
                   )
                 }
             </div>
