@@ -8,6 +8,14 @@
   --white: #FFFFFF;
   --black: #121212;
 
+  --blue-050: #d8deff;
+  --blue-100: #D5F3FE;
+  --blue-150: #00BFFF;
+  --blue-200: #5CB7F4;
+  --blue-300: #1A649C;
+  --blue-400: #443bc9;
+  --blue-700: #00376F;
+
   --gray-100: #e1e1e6;
   --gray-300: #a8a8b3;
   --gray-800: #29292e;
@@ -19,6 +27,7 @@
 
   --green-100: #c8e6c9;
   --green-300: #00FF7F;
+  --green-400: #08e676;
 
   --brown-100: #f6ead4;
   --brown-200: #b4a284;
@@ -38,7 +47,7 @@
 }
 
 body {
-  background: var(--brown-100);
+  background: var(--white);
   color: var(--black)
 }
 

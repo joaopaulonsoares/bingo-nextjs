@@ -3,6 +3,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from './home.module.scss'
 import { cardItem } from '../components/CardItem/index';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+import BounceLoader from "react-spinners/BounceLoader";
 
 export default function Home() {
   const sizeOfNumbersInRoulette = 75;
@@ -12,10 +15,15 @@ export default function Home() {
   const [drawNumbers, setDrawNumbers] = useState([])
   const [numbersToBeDraw, setNumbersToBeDraw] = useState(numbersOfRoulette);
   const [lastNumberDraw, setLastNumberDraw] = useState(null);
+  const [numberIsBeenDrawing, setNumberIsBeenDrawing] = useState(true);
 
   const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+  const delay = ms => new Promise(res => setTimeout(res, ms));
 
   async function drawRandomNumberAvailable(e){
+    setNumberIsBeenDrawing(true);
+    await delay(3000);
+
     const arrayPositionDraw = random(0, numbersToBeDraw.length);
     const drawNumber = (numbersToBeDraw[arrayPositionDraw]);
     await setLastNumberDraw(drawNumber);
@@ -25,6 +33,8 @@ export default function Home() {
     const updateAvailableNumbersToDrawn = availableNumbersToDrawn.filter(item => item !== drawNumber)
     await setNumbersToBeDraw(updateAvailableNumbersToDrawn);
     await updateLocalStorageData(updateDrawedNumbers);
+
+    setNumberIsBeenDrawing(false);
   }
 
  useEffect(async () => {
@@ -52,6 +62,23 @@ export default function Home() {
     localStorage.setItem('@bingoRoulette/drawedNumbers', updateAvailableNumbersToDrawn);
   }
 
+
+  async function confirmRestartDraw(){
+    confirmAlert({
+      title: 'Bingoooooo',
+      message: 'Você confirma que deseja reiniciar o sorteio? Todos os números sorteados até o momento serão excluídos e um novo sorteio será iniciado.',
+      buttons: [
+        {
+          label: 'Sim',
+          onClick: () => cleanLocalStorageData()
+        },
+        {
+          label: 'Não',
+        }
+      ]
+    });
+  }
+
   async function cleanLocalStorageData() {
     // Limpar LocalStorage
     localStorage.removeItem('@bingoRoulette/drawedNumbers');
@@ -67,7 +94,11 @@ export default function Home() {
             <div className={styles.rouletteHeader}>
               <div className={styles.sort}>
                 <div className={styles.sortedNumber}>
-                  {lastNumberDraw === null ? '-' : (lastNumberDraw + 1)}
+                  {!numberIsBeenDrawing ? 
+                    (lastNumberDraw === null ? '-' : (lastNumberDraw + 1)) 
+                    : 
+                    (<BounceLoader size={100} color="#d8deff" />)
+                  }
                 </div>
                 <div className={styles.lastDraws}>
                   {
@@ -84,7 +115,7 @@ export default function Home() {
                 { drawNumbers.length < sizeOfNumbersInRoulette &&
                   <button onClick={drawRandomNumberAvailable}>Sortear próximo número</button>
                 }
-                <button onClick={cleanLocalStorageData}>Reiniciar sorteio</button>
+                <button onClick={confirmRestartDraw}>Reiniciar sorteio</button>
               </div>
 
 

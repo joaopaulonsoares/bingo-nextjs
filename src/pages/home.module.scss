@@ -10,35 +10,53 @@
 
 
 .rouletteContainer {
-    width: 70%;
+    width: 80%;
     height: 90vh;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
 
 
     .rouletteHeader {
         height: 30vh;
-        width: 100%;
-        background-color: var(--brown-200);
+        width: 80%;
+        background-color: var(--blue-050);
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         margin-bottom: 2rem;
         border-radius:20px;
+
+        @media (max-width:800px){
+            flex-direction: column;
+            height: 40%;
+            width: 100%;
+        }
         
         .sort {
             display: flex;
             align-items: center;
             flex-direction: column;
+            @media (max-width:800px){
+                padding-top: 1rem;
+            }
 
             .sortedNumber {
-                background: var(--brown-100);
+                background: var(--white);
                 border-radius: 50%;
-                width: 13rem;
-                height: 13rem;
+                width: 20vh;
+                height: 20vh;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 font-size: 8rem;
                 font-weight: bold;
+
+                @media (max-width:800px){
+                    width: 15vh;
+                    height: 15vh;
+                    font-size: 4rem;
+                }
             }
 
             .lastDraws{
@@ -47,16 +65,22 @@
                 padding-top: 1rem;
 
                 .lastNumbersDraw {
-                    background: var(--brown-100);
+                    background: var(--white);
                     border-radius: 50%;
-                    width: 3rem;
-                    height: 3rem; 
+                    width: 5vh;
+                    height: 5vh; 
                     font-size: 1.5rem;
                     font-weight: bold;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     margin-right: 10px;
+
+                    @media (max-width:800px){
+                        width: 3vh;
+                        height: 3vh;
+                        font-size: 1rem;
+                    }
                 }
             }
 
@@ -68,11 +92,14 @@
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
+            align-items: center;
 
             button {
                 height: 5vh;
                 width: 20rem;
-                border: 5px solid var(--brown-400);
+                border: 5px solid var(--white);
+                background-color: var(--white);
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
                 border-radius: 5px;
                 font-weight: bold;
                 font-size: 1.2rem;
@@ -82,6 +109,16 @@
                 &:hover { 
                     filter: brightness(0.9);
                 }
+
+                @media (max-width:800px){
+                    flex-direction: column;
+                    height: 2rem;
+                    max-width: 70%;
+                    border: 2px solid var(--blue-300);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
             }
         }
 
@@ -90,11 +127,16 @@
 
     .rouletteCardNumbers {
         height: 55vh;
+        width: 100%;
         display: grid;
         grid-template-columns: repeat(15, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
-        background-color: var(--brown-200);
+
+        @media (max-width:800px){
+            height: 80vh;
+            grid-template-columns: repeat(5, 1fr);
+        }
     }
 
 }
@@ -111,7 +153,7 @@
         grid-template-columns: repeat(5, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
-        background-color: var(--brown-200);
+        background-color: var(--blue-200);
         font-size: 1rem;
     }
 }
