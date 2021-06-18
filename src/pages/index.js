@@ -16,12 +16,14 @@ export default function Home() {
   const [numbersToBeDraw, setNumbersToBeDraw] = useState(numbersOfRoulette);
   const [lastNumberDraw, setLastNumberDraw] = useState(null);
   const [numberIsBeenDrawing, setNumberIsBeenDrawing] = useState(true);
+  const [disableDrawNumberButton, setDisableDrawNumberButton] = useState(false);
 
   const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
   const delay = ms => new Promise(res => setTimeout(res, ms));
 
   async function drawRandomNumberAvailable(e){
     setNumberIsBeenDrawing(true);
+    setDisableDrawNumberButton(true);
     await delay(3000);
 
     const arrayPositionDraw = random(0, numbersToBeDraw.length);
@@ -35,6 +37,7 @@ export default function Home() {
     await updateLocalStorageData(updateDrawedNumbers);
 
     setNumberIsBeenDrawing(false);
+    setDisableDrawNumberButton(false);
   }
 
  useEffect(async () => {
@@ -113,7 +116,7 @@ export default function Home() {
 
               <div className={styles.buttonsPanel}>
                 { drawNumbers.length < sizeOfNumbersInRoulette &&
-                  <button onClick={drawRandomNumberAvailable}>Sortear próximo número</button>
+                  <button disabled={disableDrawNumberButton} onClick={drawRandomNumberAvailable}>Sortear próximo número</button>
                 }
                 <button onClick={confirmRestartDraw}>Reiniciar sorteio</button>
               </div>

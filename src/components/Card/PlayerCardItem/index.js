@@ -5,14 +5,11 @@ export function PlayerCardItem({number}){
   const [isNumberMarqued, setIsNumberMarqued] = useState(false);
   //const isNumberMarqued=false;
 
-    return(
-      <div 
-        key={number} 
-        style={{backgroundColor: (isNumberMarqued ? '#4cbb17' : '' ) }} 
-        className={styles.cardItem} 
-        onClick={() => setIsNumberMarqued(!isNumberMarqued)}
-      >
-          {number + 1}
+  return(
+    <div key={number} className={styles.cardItem} onClick={() => setIsNumberMarqued(!isNumberMarqued)} >
+      <div className={styles.cardItemContainer} style={{backgroundColor: (isNumberMarqued ? '#00FF7F' : '' ) }}>
+        {number + 1}
       </div>
-    )
+    </div>
+  )
   }
