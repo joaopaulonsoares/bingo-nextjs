@@ -113,7 +113,7 @@ export default function Cartela() {
                 {
                   cardNumbers.map((number, index) =>
                       (index === 12) ? 
-                      <CenterPlayerCardItem />
+                      <CenterPlayerCardItem number={number} key={`numbersOfRoulette-${number}`} />
                       :
                       <PlayerCardItem number={number} key={`numbersOfRoulette-${number}`} />
                   )

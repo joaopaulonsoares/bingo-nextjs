@@ -15,10 +15,10 @@ export function PlayerCardItem({number}){
   )
 }
 
-export function CenterPlayerCardItem(){
+export function CenterPlayerCardItem({number}){
 
   return(
-    <div key="cardCenter" className={styles.cardItem} >
+    <div key={number} className={styles.cardItem} >
         Bingo
     </div>
   )
