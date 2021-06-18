@@ -37,7 +37,7 @@ export default function Cartela() {
       const playerCardNumbers = await drawPlayerCard()
       await setCardNumbers(playerCardNumbers);
       await updateLocalStorageData(playerCardNumbers);
-      await toast.success('Cartela gerada com sucesso!', {
+      await toast.success('Uma nova cartela foi gerada com sucesso!', {
         position: "bottom-center",
         autoClose: 2000,
         hideProgressBar: false,

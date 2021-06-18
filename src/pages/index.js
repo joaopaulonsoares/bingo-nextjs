@@ -24,7 +24,7 @@ export default function Home() {
   async function drawRandomNumberAvailable(e){
     setNumberIsBeenDrawing(true);
     setDisableDrawNumberButton(true);
-    await delay(3000);
+    await delay(random(1,5)*1000);
 
     const arrayPositionDraw = random(0, numbersToBeDraw.length);
     const drawNumber = (numbersToBeDraw[arrayPositionDraw]);
