@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import Image from 'next/image'
 import styles from './home.module.scss'
 
 export function PlayerCardItem({number}){
@@ -12,4 +13,13 @@ export function PlayerCardItem({number}){
       </div>
     </div>
   )
-  }
+}
+
+export function CenterPlayerCardItem(){
+
+  return(
+    <div key="cardCenter" className={styles.cardItem} >
+        Bingo
+    </div>
+  )
+}

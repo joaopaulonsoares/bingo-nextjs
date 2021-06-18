@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from './home.module.scss'
-import { PlayerCardItem } from '../components/Card/PlayerCardItem/index';
 import { confirmAlert } from 'react-confirm-alert'; // Import
-import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { ToastContainer, toast } from 'react-toastify';
+import { PlayerCardItem, CenterPlayerCardItem } from '../components/Card/PlayerCardItem/index';
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import 'react-toastify/dist/ReactToastify.css';
+import styles from './home.module.scss'
 
 export default function Cartela() {
   const sizeOfNumbersInRoulette = 75;
@@ -107,12 +105,16 @@ export default function Cartela() {
 
   return (
       <div className={styles.playerCardContainer}>
+          <div className={styles.playerCardContent}>
             <div className={styles.playerCardHeader}>
               <h1>Bingo</h1>
             </div>
             <div className={styles.playerCardNumbers}>
                 {
-                  cardNumbers.map((number) =>
+                  cardNumbers.map((number, index) =>
+                      (index === 12) ? 
+                      <CenterPlayerCardItem />
+                      :
                       <PlayerCardItem number={number} key={`numbersOfRoulette-${number}`} />
                   )
                 }
@@ -131,6 +133,7 @@ export default function Cartela() {
               draggable
               pauseOnHover
             />
+          </div>
       </div>
   )
 }
