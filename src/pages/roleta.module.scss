@@ -1,0 +1,153 @@
+.contentContainer {
+    margin:  0 auto;
+    padding: 0 2rem;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.rouletteContainer {
+    width: 80%;
+    height: 90vh;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+
+
+    .rouletteHeader {
+        height: 30vh;
+        width: 80%;
+        background-color: var(--blue-050);
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-bottom: 2rem;
+        border-radius:20px;
+
+        @media (max-width:800px){
+            flex-direction: column;
+            height: 40%;
+            width: 100%;
+        }
+        
+        .sort {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            @media (max-width:800px){
+                padding-top: 1rem;
+            }
+
+            .sortedNumber {
+                background: var(--white);
+                border-radius: 50%;
+                width: 20vh;
+                height: 20vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 8rem;
+                font-weight: bold;
+
+                @media (max-width:800px){
+                    width: 15vh;
+                    height: 15vh;
+                    font-size: 4rem;
+                }
+            }
+
+            .lastDraws{
+                display: flex;
+                justify-content: space-evenly;
+                padding-top: 1rem;
+
+                .lastNumbersDraw {
+                    background: var(--white);
+                    border-radius: 50%;
+                    width: 5vh;
+                    height: 5vh; 
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-right: 10px;
+
+                    @media (max-width:800px){
+                        width: 3vh;
+                        height: 3vh;
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+
+        }
+
+        .buttonsPanel {
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+
+            h1 {
+                font-size: 2.5rem;
+
+                @media (max-width:800px){
+                    font-size: 1.2rem;
+                }
+            }
+            
+
+            button {
+                height: 5vh;
+                width: 20rem;
+                border: 5px solid var(--white);
+                background-color: var(--white);
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+                border-radius: 5px;
+                font-weight: bold;
+                font-size: 1.2rem;
+
+                transition: filter 0.2s;
+
+                &:hover { 
+                    filter: brightness(0.9);
+                }
+
+                @media (max-width:800px){
+                    flex-direction: column;
+                    height: 2rem;
+                    max-width: 70%;
+                    border: 2px solid var(--blue-300);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+
+
+    }
+
+    .rouletteCardNumbers {
+        height: 55vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(15, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+
+        @media (max-width:800px){
+            height: 80vh;
+            grid-template-columns: repeat(5, 1fr);
+            padding-bottom: 1vh;
+        }
+    }
+
+}

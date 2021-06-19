@@ -5,7 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { PlayerCardItem, CenterPlayerCardItem } from '../components/Card/PlayerCardItem/index';
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import 'react-toastify/dist/ReactToastify.css';
-import styles from './home.module.scss'
+import styles from './cartela.module.scss'
 
 export default function Cartela() {
   const sizeOfNumbersInRoulette = 75;
