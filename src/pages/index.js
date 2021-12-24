@@ -10,17 +10,19 @@ import BounceLoader from "react-spinners/BounceLoader";
 
 import Image from 'next/image'
 import qrCode from '../../public/cartela_qrCode.png';
+import { TEXTS } from '../settings/index';
+
 
 export default function Home() {
 
   return (
     <>
       <Head>
-        <title>Bingo da Bibi</title>
+        <title>{`${TEXTS.applicationTitle}`}</title>
       </Head>
       <div className={styles.contentContainer}>
         <div className={styles.header}>
-          <h1>Big Bingo da Bibi</h1>
+          <h1>{`${TEXTS.applicationTitle}`}</h1>
         </div>
         <div className={styles.content}>
           <div className={styles.box}>

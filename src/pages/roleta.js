@@ -6,6 +6,8 @@ import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import BounceLoader from "react-spinners/BounceLoader";
 
+import { TEXTS } from '../settings/index';
+
 export default function Roleta() {
   const sizeOfNumbersInRoulette = 75;
 
@@ -93,7 +95,7 @@ export default function Roleta() {
   return (
     <>
       <Head>
-        <title>Bingo da Bibi</title>
+        <title>{TEXTS.applicationTitle}</title>
       </Head>
       <div className={styles.contentContainer}>
         <div className={styles.rouletteContainer}> 
@@ -119,12 +121,12 @@ export default function Roleta() {
               </div>
 
               <div className={styles.buttonsPanel}>
-                <h1>Big Bingo da Bibi</h1>
+                <h1>{TEXTS.applicationTitle}</h1>
 
                 { drawNumbers.length < sizeOfNumbersInRoulette &&
                   <button disabled={disableDrawNumberButton} onClick={drawRandomNumberAvailable}>Sortear próximo número</button>
                 }
-                <button onClick={confirmRestartDraw}>Novo bingo</button>
+                <button onClick={confirmRestartDraw}>Reiniciar bingo</button>
               </div>
 
 

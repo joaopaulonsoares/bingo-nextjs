@@ -7,6 +7,8 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './cartela.module.scss'
 
+import { TEXTS } from "../settings/index";
+
 export default function Cartela() {
   const sizeOfNumbersInRoulette = 75;
   const amountOfNumbersInCard = 25;
@@ -107,12 +109,12 @@ export default function Cartela() {
   return (
     <>
       <Head>
-        <title>Cartela | Bingo da Bibi</title>
+        <title>{`${TEXTS.applicationTitle}`}</title>
       </Head>
       <div className={styles.playerCardContainer}>
           <div className={styles.playerCardContent}>
             <div className={styles.playerCardHeader}>
-              <h1>Bingo</h1>
+              <h1>{`${TEXTS.applicationTitle}`}</h1>
             </div>
             <div className={styles.playerCardNumbers}>
                 {
