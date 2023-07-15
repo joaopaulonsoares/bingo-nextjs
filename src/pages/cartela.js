@@ -18,6 +18,18 @@ export default function Cartela() {
 
   const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
+  /*
+  async function generateNumbersInInterval(initialValue, finalValue, totalToGenerate){
+    let generatedNumbers = [];
+    for(let i = 0; i < totalToGenerate ; i++){
+      const arrayPositionDraw = await random(initialValue, finalValue);
+      if(arrayPositionDraw)
+      await numbersAtCard.push(numberDrawed)
+      const updateAvailableNumbers = await availableNumbers.filter(item => item !== numberDrawed);
+      availableNumbers = [...updateAvailableNumbers];
+    }
+  }
+  */
   async function drawPlayerCard(){
     let availableNumbers = numbersOfRoulette;
     let numbersAtCard = [];
