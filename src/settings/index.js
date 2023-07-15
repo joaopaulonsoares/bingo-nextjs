@@ -1,3 +1,3 @@
 export const TEXTS = {
-  applicationTitle: "Bingo"
+  applicationTitle: "Bingo do Arraia"
 }
